@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import Form from "./Form";
 
 const customIcon = L.icon({
   iconUrl: "/images/marker-icon.png",
@@ -52,6 +53,7 @@ const MapPage = () => {
           {position.lng.toFixed(4)}
         </p>
       )}
+      <Form lat={position?.lat ?? 0} lon={position?.lng ?? 0} />
     </>
   );
 };
