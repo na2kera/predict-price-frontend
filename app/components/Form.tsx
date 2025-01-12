@@ -11,7 +11,7 @@ const Form = ({ lat, lon }: FormProps) => {
   const [madoriNumberAll, setMadoriNumberAll] = useState(0);
   const [floorCount, setFloorCount] = useState(0);
 
-  const [predictPrice, setPredictPrice] = useState("");
+  const [predictPrice, setPredictPrice] = useState<number>(0);
 
   const handleSubmit = async () => {
     console.log(houseArea, afterYear, madoriNumberAll, floorCount);
@@ -80,8 +80,12 @@ const Form = ({ lat, lon }: FormProps) => {
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-2xl font-bold">
-            予想価格：{predictPrice.toLocaleString()}万円
+            予想価格：{Math.floor(predictPrice)}万
+            {((predictPrice % 1) * 10000).toFixed(0)}円
           </p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
         </div>
       </div>
     </>
